@@ -21,11 +21,12 @@ function check (path, options, callback) {
       if (err.code === 'ENOENT') {
         check.apply(null, args)
       } else {
-        callback(err)
+        setTimeout(function () {
+          callback(err)
+        }, options.checkInterval)
       }
       return
     }
-
     callback(null)
   })
 }

@@ -57,4 +57,22 @@ describe('untilExists', function () {
       touch(newPath)
     }, 250)
   })
+
+  it('calls the callback after a folder is created', function (done) {
+    const start = new Date()
+    const newPath = path.resolve(this.tmpPath, 'a-new-folder')
+
+    untilExists(newPath, function (err) {
+      const elapsed = new Date() - start
+
+      assert.equal(err, null)
+      assert(elapsed > 200)
+
+      done()
+    })
+
+    setTimeout(function () {
+      mkdirp(newPath)
+    }, 250)
+  })
 })
