@@ -14,7 +14,7 @@ module.exports = function untilExists (path, options, callback) {
 }
 
 function check (path, options, callback) {
-  var args = arguments
+  const args = arguments
 
   fs.stat(path, function (err, stats) {
     if (err) {

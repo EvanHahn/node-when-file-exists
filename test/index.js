@@ -3,7 +3,6 @@
 const untilExists = require('..')
 
 const assert = require('assert')
-// const fs = require('fs')
 const mkdirp = require('mkdirp')
 const path = require('path')
 const rimraf = require('rimraf')
