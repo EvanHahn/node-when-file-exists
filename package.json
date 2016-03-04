@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "pretest": "standard",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.2",
+    "standard": "^6.0.7",
+    "touch": "^1.0.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "afterEach",
+      "it"
+    ]
+  }
+}

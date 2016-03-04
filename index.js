@@ -1,0 +1,39 @@
+'use strict'
+
+const fs = require('fs')
+
+module.exports = function untilExists (path, options, callback) {
+  if (arguments.length === 2) {
+    callback = options
+    options = null
+  }
+
+  options = parseOptions(options)
+
+  check(path, options, callback)
+}
+
+function check (path, options, callback) {
+  var args = arguments
+
+  fs.stat(path, function (err, stats) {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        check.apply(null, args)
+      } else {
+        callback(err)
+      }
+      return
+    }
+
+    callback(null)
+  })
+}
+
+function parseOptions (options) {
+  const result = options || {}
+
+  result.checkInterval = 100
+
+  return result
+}
