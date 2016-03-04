@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 
-module.exports = function untilExists (path, options, callback) {
+module.exports = function whenExists (path, options, callback) {
   if (arguments.length === 2) {
     callback = options
     options = null

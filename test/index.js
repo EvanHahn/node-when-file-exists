@@ -1,6 +1,6 @@
 'use strict'
 
-const untilExists = require('..')
+const whenExists = require('..')
 
 const assert = require('assert')
 const mkdirp = require('mkdirp')
@@ -8,7 +8,7 @@ const path = require('path')
 const rimraf = require('rimraf')
 const touch = require('touch')
 
-describe('untilExists', function () {
+describe('whenExists', function () {
   beforeEach(function () {
     this.tmpPath = path.resolve(__dirname, '..', 'tmp')
     this.alreadyExistsPath = path.resolve(this.tmpPath, 'already-exists.txt')
@@ -29,7 +29,7 @@ describe('untilExists', function () {
   it('calls the callback if a file already exists', function (done) {
     const start = new Date()
 
-    untilExists(this.alreadyExistsPath, function (err) {
+    whenExists(this.alreadyExistsPath, function (err) {
       const elapsed = new Date() - start
 
       assert.equal(err, null)
@@ -43,7 +43,7 @@ describe('untilExists', function () {
     const start = new Date()
     const newPath = path.resolve(this.tmpPath, 'a-new-file.txt')
 
-    untilExists(newPath, function (err) {
+    whenExists(newPath, function (err) {
       const elapsed = new Date() - start
 
       assert.equal(err, null)
@@ -61,7 +61,7 @@ describe('untilExists', function () {
     const start = new Date()
     const newPath = path.resolve(this.tmpPath, 'a-new-folder')
 
-    untilExists(newPath, function (err) {
+    whenExists(newPath, function (err) {
       const elapsed = new Date() - start
 
       assert.equal(err, null)
