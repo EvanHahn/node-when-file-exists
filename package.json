@@ -1,9 +1,30 @@
 {
-  "private": true,
+  "name": "when-file-exists",
+  "version": "0.0.0",
+  "description": "call a callback when a file is created",
+  "main": "index.js",
+  "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
+  "license": "Unlicense",
   "scripts": {
     "pretest": "standard",
     "test": "mocha"
   },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanHahn/node-when-file-exists.git"
+  },
+  "keywords": [
+    "file",
+    "exists",
+    "watcher"
+  ],
+  "bugs": {
+    "url": "https://github.com/EvanHahn/node-when-file-exists/issues"
+  },
+  "homepage": "https://github.com/EvanHahn/node-when-file-exists#readme",
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
